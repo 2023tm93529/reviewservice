@@ -1,0 +1,21 @@
+services:
+  review-service:
+    build: .
+    ports:
+      - "3003:3003"
+    volumes:
+      - .:/app
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/reviewservice
+
+  mongo:
+    image: mongo
+    ports:
+      - "27019:27017"
+    volumes:
+      - review-data:/data/db
+
+volumes:
+  review-data:
