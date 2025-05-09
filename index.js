@@ -10,7 +10,7 @@ mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost:27017/reviewservi
   useUnifiedTopology: true,
 });
 
-app.use('/api', reviewRoutes);
+app.use('/api/reviews', reviewRoutes);
 
 const PORT = 3003;
 app.listen(PORT, () => {
